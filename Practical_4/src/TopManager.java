@@ -4,6 +4,7 @@ public class TopManager implements EmployeePosition {
     private double finalSalary;
     private final Company company;
 
+
     public TopManager(Company company) {
         this.company = company;
     }
@@ -19,10 +20,11 @@ public class TopManager implements EmployeePosition {
 
     @Override
     public double calcSalary(double baseSalary) {
-        if (company.getIncome() > 10) {
-            return finalSalary = baseSalary*2.5;
+        Random r = new Random();
+        if (company.employeeUtility() > 10) {
+            return finalSalary = (double) r.nextInt((90000 - (int)(baseSalary*1.5)) + 1) + baseSalary*1.5;
         } else {
-            return finalSalary = baseSalary;
+            return finalSalary = (double) r.nextInt((90000 - (int)(baseSalary + 30000)) + 1) + baseSalary;
         }
     }
 }
