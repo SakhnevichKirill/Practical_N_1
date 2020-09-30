@@ -46,14 +46,7 @@ public class Company {
             public int compare(Employee o1, Employee o2) {
                 double O1 = o1.position.getFinalSalary();
                 double O2 = o2.position.getFinalSalary();
-                if (O1 < O2) {
-                    return 1;
-                }
-                else if (O1 > O2) {
-                    return -1;
-                } else {
-                    return 0;
-                }
+                return Double.compare(O2, O1);
             }
         };
         employees.sort(comparator);
