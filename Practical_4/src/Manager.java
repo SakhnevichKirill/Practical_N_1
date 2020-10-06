@@ -3,6 +3,8 @@ import java.util.Random;
 public class Manager implements EmployeePosition {
     private double finalSalary;
     private Company company;
+    private double profitManag;
+
 
     public Manager (Company company){
         this.company = company;
@@ -21,9 +23,12 @@ public class Manager implements EmployeePosition {
     @Override
     public double calcSalary(double baseSalary) {
         Random r = new Random();
-        if (company.employeeUtility() > 10)
-            finalSalary = (double) r.nextInt((60000 - (int)baseSalary) + 1) + baseSalary + 5000;
-        else finalSalary = (double) r.nextInt((60000 - (int)baseSalary) + 1) + baseSalary;
+
+        profitManag = (double) r.nextInt((140000 - 115000) + 1) + 115000;
+        company.refProfitCompany(profitManag);
+
+        finalSalary = (double) r.nextInt(((int)(baseSalary+profitManag*0.05) - (int)baseSalary) + 1) + baseSalary;
+
         return finalSalary;
     }
 

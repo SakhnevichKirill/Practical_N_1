@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Company {
     private List<Employee> employees;
+    private double profitCompany;
 
 
     private Random r = new Random();
@@ -28,10 +29,6 @@ public class Company {
 
     public void fire(int pos) {
         employees.remove(pos);
-    }
-
-    public int employeeUtility() {
-        return r.nextInt(20);
     }
 
 
@@ -85,9 +82,21 @@ public class Company {
         return lowList;
     }
 
-    public void generateEmployees() {
+    public void generateEmployees(Company company) {
         Employee emp;
-        Company company = new Company();
+
+        for (int i = 0; i < 80; i++) {
+            if (i%3 == 1) {
+                emp = new Employee("Kate", "Romero", new Manager(company));
+                hair(emp);
+            } else if (i%3 == 2) {
+                emp = new Employee("Fedor", "Rurikov", new Manager(company));
+                hair(emp);
+            } else {
+                emp =  new Employee("Kirill", "Sakhnevich", new Manager(company));
+                hair(emp);
+            }
+        }
 
         for (int i = 0; i < 180; i++) {
             if (i%3 == 1) {
@@ -101,6 +110,7 @@ public class Company {
                 hair(emp);
             }
         }
+
         for (int i = 0; i < 10; i++) {
 
             if (i%3 == 1) {
@@ -116,29 +126,25 @@ public class Company {
 
         }
 
-        for (int i = 0; i < 80; i++) {
-            if (i%3 == 1) {
-                emp = new Employee("Kate", "Romero", new Manager(company));
-                hair(emp);
-            } else if (i%3 == 2) {
-                emp = new Employee("Fedor", "Rurikov", new Manager(company));
-                hair(emp);
-            } else {
-                emp =  new Employee("Kirill", "Sakhnevich", new Manager(company));
-                hair(emp);
-            }
-        }
+    }
+
+    public void refProfitCompany(double profitEmployee){
+        profitCompany += profitEmployee;
+    }
+
+    public double getProfitCompany(){
+        return profitCompany;
     }
 
     public void calcAll() {
         for (Employee employee : employees) {
-            employee.position.calcSalary(r.nextInt((35000 - 25000) + 1) + 25000);
+           employee.position.calcSalary(r.nextInt((35000 - 25000) + 1) + 25000);
         }
     }
 
     public void print(int n) {
         if (n > employees.size())
-            System.out.println("Размер введенный для вывода больше размера списка сотрудников");
+            System.out.println("Размер введенный для вывода больше, чем размера списка сотрудников");
         else {
             for (int i = 0; i < n; i++) {
                 System.out.println(employees.get(i) + "  " + employees.get(i).position.getFinalSalary() + "  " + employees.get(i).position.getJobTitle() + "\n");

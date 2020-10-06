@@ -1,54 +1,37 @@
 public class Square extends Rectangle {
-    private double side;
+    public Square() {
+    }
 
-    public void setSide(double side) {
-        this.side = side;
+    public Square(double side) {
+        super(side, side);
+    }
+
+    public Square(String color, boolean filled, double side) {
+        super(side, side, color, filled);
     }
 
     public double getSide() {
-        return side;
+        return width;
     }
 
-    @Override
-    public void setLength(double side) {
-        super.setLength(side);
+    public void setSide(double side) {
+        this.width = side;
+        this.length = side;
     }
 
-    @Override
-    public void setWidth(double side) {
-        super.setWidth(side);
-    }
     @Override
     public double getArea() {
-        return side*side;
+        return this.width * this.length;
     }
+
     @Override
     public double getPerimeter() {
-        return 4*side;
+        return 4*this.width;
     }
 
-
-
-
-    public Square() {
-
-    }
-    public  Square(double side) {
-        setSide(side);
-    }
-    public Square(double side,String color,boolean filled) {
-        setColor(color);
-        setFilled(filled);
-        Square sq = new Square(side);
-        sq.setLength(side);
-        sq.setWidth(side);
-        System.out.println("Цвет Квадрата: " + getColor() + "\n"
-                + sq.toString());
-
-    }
     public String toString() {
-        return  " Длина Квадрата: " + side + "\n"
-                + " Площадь Квадрата " + getArea() + "\n"
-                + " Периметр Квадрата " + getPerimeter();
+        return  " Длина стороны квадрата: " + width + "\n"
+                + " Площадь квадрата " + getArea() + "\n"
+                + " Периметр квадрата " + getPerimeter();
     }
 }

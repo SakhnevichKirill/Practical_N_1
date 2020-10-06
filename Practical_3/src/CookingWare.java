@@ -12,6 +12,12 @@ public class CookingWare extends Dish {
         return features;
     }
 
+
+    @Override
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
     @Override
     public void setType(String type) {
         this.type = type;

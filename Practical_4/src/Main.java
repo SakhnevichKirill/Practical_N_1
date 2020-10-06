@@ -4,9 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Company company = new Company();
 
-        company.generateEmployees(); // генерирую сотрудников Оп. 180; Мен. 80; ТопМен. 10.
+        company.generateEmployees(company); // генерирую сотрудников Оп. 180; Мен. 80; ТопМен. 10.
 
         company.calcAll(); // считаем зарплаты все сотрудников с базовой ставкой от 25000 до 35000 рандомно
+
+        System.out.println("Доход компании: " + company.getProfitCompany());
 
 
 
@@ -33,7 +35,7 @@ public class Main {
             }
         }
 
-        System.out.println("___после сокращения штаба_____________________");
+        System.out.println("После сокращения половины сотрудников");
         ///////////////
         high = company.getTopSalaryStaff(10);
 

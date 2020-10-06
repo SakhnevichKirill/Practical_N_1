@@ -13,16 +13,16 @@ public class Main {
             CookingWare a = new CookingWare();
 
             System.out.println("Введите материалы из которых выполнена посуда: ");
-            String material = s.nextLine();
+            a.setMaterial(s.next());
 
             System.out.println("Введите тип кухонной посуды(это могут быть: кастрюли, сковородки и т.д.): ");
-            String type = s.nextLine();
+            a.setType(s.next());
 
             System.out.println("Введите общее число посудных изделий для кухни: ");
-            int count = s.nextInt();
+            a.setCount(s.nextInt());
 
             System.out.println("Введите особенности посуды: ");
-            String features = s.next();
+            a.setFeatures(s.next());
 
             System.out.println(a.getInfo());
 
@@ -34,16 +34,16 @@ public class Main {
             TableWare b = new TableWare();
 
             System.out.println("Введите материалы из которых выполнена посуда: ");
-            String material = s.nextLine();
+            b.setMaterial(s.next());
 
             System.out.println("Введите тип столовой посуды(это могут быть: вилки, бакалы, стаканы и т.д.): ");
-            String type = s.nextLine();
+            b.setType(s.next());
 
             System.out.println("Введите общее число посудных изделий для столовой: ");
-            int count = s.nextInt();
+            b.setCount(s.nextInt());
 
             System.out.println("Введите особенности посуды: ");
-            String features = s.next();
+            b.setFeatures(s.next());
 
             System.out.println(b.getInfo());
 

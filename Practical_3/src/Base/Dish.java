@@ -10,6 +10,8 @@ public abstract class Dish {
 
     public abstract void setType(String type);
 
+    public abstract void setMaterial(String material);
+
     public abstract String getInfo();
 
 

@@ -13,6 +13,11 @@ public class TableWare extends Dish {
     }
 
     @Override
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    @Override
     public void setType(String type) {
         this.type = type;
     }

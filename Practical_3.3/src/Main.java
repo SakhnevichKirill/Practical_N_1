@@ -26,7 +26,10 @@ public class Main {
                 double length = in.nextDouble();
                 System.out.println("Введите ширину: ");
                 double width = in.nextDouble();
-                Rectangle rec = new Rectangle(width, length, color, true);
+                Rectangle rectangle = new Rectangle(width,length);
+
+                System.out.println(rectangle);
+                System.out.println(rectangle.getPerimeter());
                 break;
             }
             case (3): {
@@ -35,7 +38,9 @@ public class Main {
                 String color = in.nextLine();
                 System.out.println("Введите длину стороны: ");
                 double side = in.nextDouble();
-                Square sq = new Square(side, color, true);
+                Square square = new Square(10);
+                System.out.println(square);
+                System.out.println(square.getWidth());
                 break;
             }
 

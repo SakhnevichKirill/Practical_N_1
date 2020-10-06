@@ -2,16 +2,29 @@ public class Rectangle extends Shape {
     protected double width;
     protected double length;
 
+    public Rectangle() {}
+
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
+    }
+
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
     public double getWidth() {
         return width;
     }
 
-    public double getLength() {
-        return length;
-    }
-
     public void setWidth(double width) {
         this.width = width;
+    }
+
+    public double getLength() {
+        return length;
     }
 
     public void setLength(double length) {
@@ -20,33 +33,18 @@ public class Rectangle extends Shape {
 
     @Override
     public double getArea() {
-        return length*width;
+        return this.width*this.length;
     }
 
     @Override
     public double getPerimeter() {
-        return (2*width)+(2*length);
-    }
-    public Rectangle() {
-
-    }
-    public Rectangle(double width,double length) {
-        setWidth(width);
-        setLength(length);
-
-    }
-    public Rectangle(double width,double length,String color,boolean filled) {
-        setColor(color);
-        setFilled(filled);
-        Rectangle res = new Rectangle(width,length);
-        System.out.println("Цвет Прямоугольника: " + getColor() + "\n"
-                + res.toString());
+        return 2*this.width+2*this.length;
     }
 
     @Override
     public String toString() {
-        return  " Ширина Прямоугольника: " + width + "\n" + " Длина Прямоугольника: " + length + "\n"
-                + " Площадь Прямоугольника " + getArea() + "\n"
+        return  " Ширина прямоугольника: " + width + "\n" + " Длина прямоугольника: " + length + "\n"
+                + " Площадь прямоугольника " + getArea() + "\n"
                 + " Периметр Прямоугольника " + getPerimeter();
     }
 }

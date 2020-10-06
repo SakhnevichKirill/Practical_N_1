@@ -37,7 +37,7 @@ public class Circle extends Shape {
         setColor(color);
         setFilled(filled);
         Circle cr = new Circle(radius);
-        System.out.println("Цвет Круга: " + getColor() + "\n"
+        System.out.println("Цвет круга: " + getColor() + "\n"
                 + cr.toString());
     }
 }
