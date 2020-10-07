@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MyForm">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="c4e1f" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="10753" class="javax.swing.JLabel" binding="team1Label">
+            <constraints/>
+            <properties>
+              <enabled value="true"/>
+              <horizontalAlignment value="10"/>
+              <horizontalTextPosition value="11"/>
+              <text value="TEAM1"/>
+            </properties>
+          </component>
+          <component id="aa5dd" class="javax.swing.JLabel" binding="team2Label">
+            <constraints/>
+            <properties>
+              <horizontalAlignment value="10"/>
+              <horizontalTextPosition value="11"/>
+              <text value="TEAM2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="de63" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="909c7" class="javax.swing.JButton" binding="team1Button">
+            <constraints/>
+            <properties>
+              <text value="+1 to TEAM1"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+          <component id="42a23" class="javax.swing.JButton" binding="totalButton">
+            <constraints/>
+            <properties>
+              <text value="TOTAL"/>
+            </properties>
+          </component>
+          <component id="47c34" class="javax.swing.JButton" binding="team2Button">
+            <constraints/>
+            <properties>
+              <text value="+1 to TEAM2"/>
+              <verticalAlignment value="0"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="7481f" class="javax.swing.JLabel" binding="scoreLabel">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <text value="Label"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

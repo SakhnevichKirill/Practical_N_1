@@ -3,12 +3,21 @@ import java.util.Random;
 public class TopManager implements EmployeePosition {
     private double finalSalary;
     private final Company company;
-
+    private boolean f;
 
     public TopManager(Company company) {
         this.company = company;
     }
 
+    public void setF(){
+        double temp = company.getProfitCompany();
+        if (temp > 10000000)
+            f = true;
+        else f = false;
+    }
+
+
+    @Override
     public double getFinalSalary() {
         return finalSalary;
     }
@@ -21,10 +30,8 @@ public class TopManager implements EmployeePosition {
     @Override
     public double calcSalary(double baseSalary) {
         Random r = new Random();
-        if (company.employeeUtility() > 10) {
-            return finalSalary = (double) r.nextInt((90000 - (int)(baseSalary*1.5)) + 1) + baseSalary*1.5;
-        } else {
-            return finalSalary = (double) r.nextInt((90000 - (int)(baseSalary + 30000)) + 1) + baseSalary;
-        }
+        setF();
+        if (f) return finalSalary = baseSalary*1.5;
+        else return finalSalary = baseSalary;
     }
 }
