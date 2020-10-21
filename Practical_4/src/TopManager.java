@@ -31,7 +31,7 @@ public class TopManager implements EmployeePosition {
     public double calcSalary(double baseSalary) {
         Random r = new Random();
         setF();
-        if (f) return finalSalary = baseSalary*1.5;
-        else return finalSalary = baseSalary;
+        return company.getProfitCompany() > 10000000 ? baseSalary*1.5 : baseSalary;
+
     }
 }

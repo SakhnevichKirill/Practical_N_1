@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class MyForm extends JFrame{
@@ -12,10 +11,11 @@ public class MyForm extends JFrame{
     private JButton totalButton;
     private JLabel scoreLabel;
 
-    public MyForm(Team team1, Team team2) throws HeadlessException {
+    public MyForm(Team team1, Team team2) {
         setVisible(true);
         setSize(600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
         add(panel1);
 
