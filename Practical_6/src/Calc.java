@@ -11,7 +11,6 @@ public class Calc {
     private String second = "";
     private String operand = "";
 
-
     Calc(){
 
     }
