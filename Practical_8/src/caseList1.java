@@ -45,9 +45,15 @@ public class caseList1 {
                         name = "";
                     }
                     else if (tryCatch(order.substring(f+1, r))){ // изменить по ключу
+
                         k = Integer.parseInt(order.substring(f+1, r));
-                        name = order.substring(r+1, order.length());
-                        todoList.add(k, name);
+                        if (k <= todoList.size()){
+                            name = order.substring(r+1, order.length());
+                            todoList.add(k, name);
+                        }
+                        else {
+                            System.out.println("Такого ключа не существует");
+                        }
                     }
                     else {
                         System.out.println("Неправильный ввод ключа! Попробуйте еще раз.");
@@ -59,7 +65,9 @@ public class caseList1 {
                 else if (name.equals("DELETE")){
                     if (tryCatch(order.substring(f+1, order.length()))){ //удалить по ключу
                         k = Integer.parseInt(order.substring(f+1, order.length()));
-                        todoList.remove(k);
+                        if (k <= todoList.size()){
+                            todoList.remove(k);
+                        }
                     }
                     else { // удалить всё
                         todoList.clear();

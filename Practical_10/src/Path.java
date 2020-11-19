@@ -1,10 +1,13 @@
 
+import openandread.FileWork;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Path {
+    public static FileWork fileWork = new FileWork(true);
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] s;
@@ -12,6 +15,7 @@ public class Path {
 
         while (f){
             System.out.println("1 - Enter the path to the folder \"1 ...\"; 2 - Enter the path from \"2 ... ...\"; 3 - escape");
+            fileWork.writeLine("1 - Enter the path to the folder \"1 ...\"; 2 - Enter the path from \"2 ... ...\"; 3 - escape");
             s = sc.nextLine().split("\\s+");
             switch (s[0]) {
                 case ("1") -> {
@@ -33,11 +37,13 @@ public class Path {
                         copyFolder(src, dest);
                     } catch (IOException e) {
                         System.out.println("File exception");
+                        fileWork.writeLine("File exception");
                     }
                 }
                 case ("3") -> {
                     f = false;
                     System.out.println("The end.");
+                    fileWork.writeLine("The end.");
                 }
                 default -> System.out.println("Incorrect command");
             }
@@ -56,6 +62,7 @@ public class Path {
                 .format(size/unitValue) + " "
                 + units[unitIndex];
         System.out.println("Размер папки " + s + " составляет " + readableSize);
+        fileWork.writeLine("Размер папки " + s + " составляет " + readableSize);
     }
 
     public static void copyFolder(File src, File dest) throws IOException{
@@ -66,6 +73,8 @@ public class Path {
             if(!dest.exists()){
                 dest.mkdir();
                 System.out.println("Directory copied from "
+                        + src + "  to " + dest);
+                fileWork.writeLine("Directory copied from "
                         + src + "  to " + dest);
             }
 
@@ -97,6 +106,7 @@ public class Path {
             in.close();
             out.close();
             System.out.println("File copied from " + src + " to " + dest);
+            fileWork.writeLine("File copied from " + src + " to " + dest);
         }
     }
 

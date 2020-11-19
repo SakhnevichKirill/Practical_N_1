@@ -22,6 +22,7 @@ public class caseTreeSet {
                         if (isMailCorrect(s[1])) {
                             mailAddress.add(s[1]);
                         }
+                        System.out.println("Incorrect input");
                     } else {
                         System.out.println("Incorrect input");
                     }
