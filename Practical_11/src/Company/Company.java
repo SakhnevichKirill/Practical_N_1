@@ -2,20 +2,22 @@ package Company;
 
 public class Company {
     private String company;
-    private String income;
+    private int income = 0;
+    private int expenses = 0;
 
-    Company(){}
+    public Company(){}
 
-    Company(String company, String income) {
+    Company(String company, int income, int expenses) {
         this.company = company;
         this.income = income;
+        this.expenses = expenses;
     }
 
     public String getCompany() {
         return company;
     }
 
-    public String getIncome() {
+    public int getIncome() {
         return income;
     }
 
@@ -23,7 +25,20 @@ public class Company {
         this.company = company;
     }
 
-    public void setIncome(String income) {
-        this.income = income;
+    public void addIncome(int income) {
+        this.income += income;
+    }
+
+    public void addExpenses(int expenses) {
+        this.expenses += expenses;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "company='" + company + '\'' +
+                ", income=" + income +
+                ", expenses=" + expenses +
+                '}';
     }
 }

@@ -9,23 +9,17 @@ public class Loader {
         String[] s;
         boolean f = true;
         FileWork fileWork = new FileWork(f);
+        fileWork.setMap();
 
         while (f){
-            System.out.println("1 - read; 2 - write \"2 ...\"");
+            System.out.println("1 - print; 2 - exit");
             s = sc.nextLine().split("\\s+");
             switch (s[0]) {
                 case ("1") -> {
-                    fileWork.printFile();
+                    fileWork.printMap();
                 }
-                case ("2") -> {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    for (int i = 1; i < s.length; i++) {
-                        stringBuilder.append(s[i]);
-                    }
-                    fileWork.writeLine(stringBuilder.toString());
-                }
-                case ("3") ->{
-
+                case ("2") ->{
+                    return;
                 }
                 default -> System.out.println("Incorrect command");
             }
