@@ -35,10 +35,8 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "company='" + company + '\'' +
-                ", income=" + income +
-                ", expenses=" + expenses +
-                '}';
+        System.out.println("Имя компнии:" + company);
+        System.out.println("Сумма дооходов: " + income + "; Сумма расходов: " + expenses);
+        return "";
     }
 }

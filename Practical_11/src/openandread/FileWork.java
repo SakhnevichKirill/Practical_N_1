@@ -7,14 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 public class FileWork {
-
+    int incomeAll = 0;
+    int expenseAll = 0;
     Write fileWrite = null;
     Read fileRead;
     String[] aryStrings;
 
     HashMap<String, Company> map = new HashMap<>();;
 
-    final String new_path = "D:\\Java\\Practical_N_1\\Practical_11\\movementList.csv";
+    final String new_path = "movementList.csv";
 
     public FileWork(boolean f){
         try {
@@ -64,6 +65,7 @@ public class FileWork {
                     company.addIncome(income);
                     map.put(describe, company);
                 }
+                incomeAll += income;
             } else {
                 if (map.containsKey(describe)) {
                     map.get(describe).addExpenses(expense);
@@ -73,13 +75,15 @@ public class FileWork {
                     company.addExpenses(expense);
                     map.put(describe, company);
                 }
+                expenseAll += expense;
             }
         }
     }
 
     public void printMap(){
+        System.out.println("Сумма дооходов:" + incomeAll + "\nСумма расходов:" + expenseAll);
         for(Map.Entry<String, Company> entry: map.entrySet()) {
-            System.out.println(entry.getKey() + "  " + entry.getValue());
+            System.out.println(entry.getValue());
         }
     }
 
