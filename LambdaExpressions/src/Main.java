@@ -16,9 +16,13 @@ public class Main
 
         staff.forEach(System.out::println);
 
+
+        //staff.sort(((o1, o2) -> {if (o1.getName().equals(o2.getName())) {return Integer.compare(o1.getSalary(), o2.getSalary());} else{return o1.getName().compareTo(o2.getName());}}));
+
         staff.sort(
                 Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary)
         );
+
         System.out.println("\n");
         staff.forEach(System.out::println);
     }

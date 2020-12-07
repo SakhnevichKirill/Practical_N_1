@@ -32,8 +32,6 @@ public class Loader {
             int prevNum = 0, num = 0;
             for (var item : news)
             {
-
-
                 if(item.attributes().get("class").equals("num")){
                     // Станции московского метро (номер линии)
                     num = Integer.parseInt(item.childNodes().get(0).toString().replaceAll("\\D+", ""));
@@ -95,6 +93,8 @@ public class Loader {
                 }
             }
 
+
+
             Gson json = new GsonBuilder().setPrettyPrinting().create();
             writeJsonToFile(json, lines);
 
@@ -114,6 +114,7 @@ public class Loader {
         FileWriter jsonFile;
         try {
             jsonFile = new FileWriter("data/metro.json");
+
             jsonFile.write(json.toJson(lines));
             jsonFile.close();
         } catch (IOException e) {
