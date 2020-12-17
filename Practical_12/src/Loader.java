@@ -11,10 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Loader {
     public static void main(String[] args) {
@@ -98,8 +95,8 @@ public class Loader {
             Gson json = new GsonBuilder().setPrettyPrinting().create();
             writeJsonToFile(json, lines);
 
-            Line person = json.fromJson(parseFile(), Line.class);
-
+//              = json.fromJson(parseFile(), .class);
+//
 
         } catch (Exception ex) {
             ex.printStackTrace();
