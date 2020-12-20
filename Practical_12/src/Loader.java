@@ -90,12 +90,10 @@ public class Loader {
                 }
             }
 
-
-
             Gson json = new GsonBuilder().setPrettyPrinting().create();
             writeJsonToFile(json, lines);
 
-//              = json.fromJson(parseFile(), .class);
+//          TreeMap<String, Line> lines = json.fromJson(parseFile(), .class);
 //
 
         } catch (Exception ex) {
