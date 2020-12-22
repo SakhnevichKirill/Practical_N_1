@@ -2,11 +2,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,40 +18,6 @@ public class Loader {
 
         html = createHTML();
 
-        addSelectionsListForObjects();
-
-        Metro metroObject = new Metro(stationsMap,lines);
-        Gson json = new GsonBuilder().setPrettyPrinting().create();
-
-        writeJsonToFile(json, metroObject);
-
-        Metro parsedMetro = json.fromJson(parseFile(),Metro.class);
-
-        ArrayList<Line> parsedList = parsedMetro.getLines();
-        TreeMap<String, String[]> parsedMap = parsedMetro.getStations();
-
-        for (var line : parsedList) {
-            System.out.println(line.getName() + ". Количество станций - " + parsedMap.get(line.getNumber()).length);
-        }
-        //System.out.println(json.toJson(metroObject));
-    }
-
-    private static void writeJsonToFile(Gson json, Metro metroObject) {
-        File dir = new File("data");
-        if (!dir.exists())
-            dir.mkdir();
-
-        FileWriter jsonFile;
-        try {
-            jsonFile = new FileWriter("data/metro.json");
-            jsonFile.write(json.toJson(metroObject));
-            jsonFile.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void addSelectionsListForObjects() {
         Elements elLines = html.select("span[data-line]");
         Elements elStations = html.select("div[data-line]");
 
@@ -83,6 +46,35 @@ public class Loader {
                     //System.out.println("   " + item.getElementsByTag("p").text().replaceAll("[^а-яА-ЯёЁъ.\\- ]","")); // value that need to split to array
                 }
             }
+        }
+        Metro metroObject = new Metro(stationsMap,lines);
+        Gson json = new GsonBuilder().setPrettyPrinting().create();
+
+        writeJsonToFile(json, metroObject);
+
+        Metro parsedMetro = json.fromJson(parseFile(),Metro.class);
+
+        ArrayList<Line> parsedList = parsedMetro.getLines();
+        TreeMap<String, String[]> parsedMap = parsedMetro.getStations();
+
+        for (var line : parsedList) {
+            System.out.println(line.getName() + ". Количество станций - " + parsedMap.get(line.getNumber()).length);
+        }
+        //System.out.println(json.toJson(metroObject));
+    }
+
+    private static void writeJsonToFile(Gson json, Metro metroObject) {
+        File dir = new File("data");
+        if (!dir.exists())
+            dir.mkdir();
+
+        FileWriter jsonFile;
+        try {
+            jsonFile = new FileWriter("data/metro.json");
+            jsonFile.write(json.toJson(metroObject));
+            jsonFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

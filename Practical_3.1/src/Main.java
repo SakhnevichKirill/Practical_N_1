@@ -3,13 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] arg) {
         Scanner s = new Scanner(System.in);
-
-
         System.out.println("Выберите породу собаки: 1 - Бордер колли; 2 - Немецкая овчарка");
         int f = s.nextInt();
         if(f == 1) {
-
-
             BorderCollie a = new BorderCollie();
 
             System.out.println("Введите имя собаки: ");
@@ -29,11 +25,6 @@ public class Main {
             a.setFeatures(features);
 
             System.out.println(a.getInfo());
-
-
-
-
-
         }
         else {
             GermanShepherd b = new GermanShepherd();
@@ -53,12 +44,7 @@ public class Main {
             System.out.println("Введите особенности собаки: ");
             String features = s.next();
             b.setFeatures(features);
-
             System.out.println(b.getInfo());
-
-
         }
-
     }
-
 }

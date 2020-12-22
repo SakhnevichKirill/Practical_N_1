@@ -1,4 +1,10 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Random;
 
 public class Tic_tac_toe extends JFrame{
     private JButton b7;
@@ -35,10 +41,10 @@ public class Tic_tac_toe extends JFrame{
     }
 }
 
-public class TicTacForm extends JFrame {
+class TicTacForm extends JFrame {
     private JPanel panel;
     private JCheckBox checkBox;
-    TicTacLogic tacLogic;
+    logicTicTacToe tacLogic;
     private boolean fieldEmpty;
     JButton[] buttons;
     private boolean missed;
@@ -71,7 +77,7 @@ public class TicTacForm extends JFrame {
             buttons[i].setFont(new Font("TimesRoman", Font.BOLD, 45));
             panel.add(buttons[i]);
         }
-        tacLogic = new TicTacLogic(buttons);
+        tacLogic = new logicTicTacToe(buttons);
     }
 
     class CellClicked implements MouseListener {
